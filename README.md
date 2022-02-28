@@ -22,3 +22,10 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### Configuración inicial del proyecto
+- Babel
+- ESLint -> ESLint with error prevention only -> Lint on save
+- Archivos de configuración dedicados
+- No guardar configuración para futuros proyectos

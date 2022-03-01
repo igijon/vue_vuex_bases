@@ -1,6 +1,6 @@
 <template>
   <h1>Counter - Vuex</h1>
-  <h2>Direct access: {{ $store.state.count }}</h2>
+  <h2>Direct access: {{ $store.state.counter.count }}</h2>
   <h2>Computed: {{ countComputed }}</h2>
 
   <button @click="increment">+1</button>
@@ -26,25 +26,21 @@ export default {
      */
     computed: {
         countComputed() {
-             return this.$store.state.count
+             return this.$store.state.counter.count
         },
-        ...mapState(['count', 'lastMutation', 'isLoading'])
+        ...mapState('counter', ['count', 'lastMutation', 'isLoading'])
     },
     methods: {
       increment() {
         //Necesito leer el store y hacer un commit de la mutacón increment
-        this.$store.commit('increment')
+        this.$store.commit('counter/increment')
       },
       incrementBy() {
         //Si queremos mantar más de un argumento, podemos mandar un objeto que se puede desestructurar en index.js en mutations
         //Las mutaciones son síncronas
-        this.$store.commit('incrementBy', 5)
+        this.$store.commit('counter/incrementBy', 5)
       },
-      incrementRandomInt() {
-        this.$store.dispatch( 'incrementRandomInt' )
-
-      },
-      ...mapActions({
+      ...mapActions('counter', {
         //Este mapActions habilita randomInt para todos los métodos
         randomInt: 'incrementRandomInt'
       }) 

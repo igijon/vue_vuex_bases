@@ -1,28 +1,12 @@
 
 import getRandomInt from "@/helpers/getRandomInt";
 import state from './state'
+import * as mutations from './mutations'
 
 const counterStore = {
     namespaced: true,
     state,
-    mutations: {
-        /**Esto podemos interpretarlo como methods */
-        /**Estos métodos permiten realizar cambios en el state */
-        increment( state ){
-            /**Recibe el state por defecto */
-            state.count ++
-            state.lastMutation = 'increment'
-        },
-        incrementBy( state, val) {
-            state.count += val
-            state.lastMutation = 'incrementBy ' + val
-            state.lastRandomInt = val
-        },
-        setLoading(state, val) {
-            state.isLoading = val
-            state.lastMutation = 'setLoading ' + val
-        }
-    },
+    mutations,
     actions: {
         //Estas sí pueden ser asíncronas
         //Se pueden usar para comprobar cosas contra un backend...

@@ -15,6 +15,10 @@ export default createStore({
             /**Recibe el state por defecto */
             state.count ++
             state.lastMutation = 'increment'
+        },
+        incrementBy( state, val) {
+            state.count += val
+            state.lastMutation = 'incrementBy'
         }
     }
 

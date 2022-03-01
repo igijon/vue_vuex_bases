@@ -4,7 +4,7 @@
   <h2>Computed: {{ countComputed }}</h2>
 
   <button @click="increment">+1</button>
-  <button>+5</button>
+  <button @click="incrementBy">+5</button>
   <button>Random</button>
 
   <h1>mapState</h1>
@@ -32,6 +32,9 @@ export default {
       increment() {
         //Necesito leer el store y hacer un commit de la mutacón increment
         this.$store.commit('increment')
+      },
+      incrementBy() {
+        this.$store.commit('incrementBy', 5)
       }
     }
 }

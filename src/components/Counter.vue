@@ -11,6 +11,8 @@
   <h2>mapState: {{ count }}</h2>
   <h2>LastMutation: {{lastMutation}}</h2>
   <!--Funciona igual que el $store.state.count pero de forma más sencilla-->
+
+  <h2>Direct getter: {{ $store.getters.squareCount }}</h2>
 </template>
 
 <script>

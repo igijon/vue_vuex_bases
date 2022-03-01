@@ -43,6 +43,15 @@ export default createStore({
             commit('incrementBy', randomInt)
             commit('setLoading', false)
         }
+    },
+    getters: {
+        /**Pueden ser llamados en cualquier parte de la aplicación.
+         * Son parecidos a las propiedades computadas
+         */
+        squareCount( state ) {
+            //En las herramientas de vue de Chrome aparecen los getters cuando el state cambia
+            return state.count * state.count
+        }
     }
 
 

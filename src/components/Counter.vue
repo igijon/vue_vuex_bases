@@ -5,7 +5,7 @@
 
   <button @click="increment">+1</button>
   <button @click="incrementBy">+5</button>
-  <button @click="incrementRandomInt">Random</button>
+  <button @click="randomInt">Random</button>
 
   <h1>mapState</h1>
   <h2>mapState: {{ count }}</h2>
@@ -42,7 +42,9 @@ export default {
         this.$store.dispatch( 'incrementRandomInt' )
 
       },
-      ...mapActions(['incrementRandomInt']) //Como le puse el mismo nombre en la llamada en el template lo puedo desestructurar así
+      ...mapActions({
+        randomInt: 'incrementRandomInt'
+      }) 
     }
 }
 </script>

@@ -4,6 +4,7 @@
   <h2>Computed: {{ countComputed }}</h2>
   <h1>mapState</h1>
   <h2>mapState: {{ count }}</h2>
+  <h2>LastMutation: {{lastMutation}}</h2>
   <!--Funciona igual que el $store.state.count pero de forma más sencilla-->
 </template>
 
@@ -21,7 +22,8 @@ export default {
              return this.$store.state.count
         },
         ...mapState({
-            count: state => state.count
+            count: state => state.count,
+            lastMutation: state => state.lastMutation
         })
     }
 }

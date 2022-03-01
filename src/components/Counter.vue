@@ -43,6 +43,7 @@ export default {
 
       },
       ...mapActions({
+        //Este mapActions habilita randomInt para todos los métodos
         randomInt: 'incrementRandomInt'
       }) 
     }

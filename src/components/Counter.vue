@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 /**Con mapState puedo mapear el estado */
 
 export default {
@@ -41,7 +41,8 @@ export default {
       incrementRandomInt() {
         this.$store.dispatch( 'incrementRandomInt' )
 
-      }
+      },
+      ...mapActions(['incrementRandomInt']) //Como le puse el mismo nombre en la llamada en el template lo puedo desestructurar así
     }
 }
 </script>

@@ -20,7 +20,9 @@ export default {
         countComputed() {
              return this.$store.state.count
         },
-        ...mapState(['count'])
+        ...mapState({
+            count: state => state.count
+        })
     }
 }
 </script>

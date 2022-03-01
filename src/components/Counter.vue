@@ -21,10 +21,7 @@ export default {
         countComputed() {
              return this.$store.state.count
         },
-        ...mapState({
-            count: state => state.count,
-            lastMutation: state => state.lastMutation
-        })
+        ...mapState(['count', 'lastMutation'])
     }
 }
 </script>

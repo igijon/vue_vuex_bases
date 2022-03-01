@@ -1,18 +1,10 @@
 
 import getRandomInt from "@/helpers/getRandomInt";
+import state from './state'
 
 const counterStore = {
     namespaced: true,
-    //https://vuex.vuejs.org/guide/modules.html#namespacing
-    
-    /**Este objeto para que el state sea rectivo tenemos que poner la función de flecha con return implícito */
-    state: () => ({
-        /**Parecido a la data, lo que tenemos dentro vamos a tener cosas reactivas */
-        count: 1,
-        lastMutation: 'none',
-        isLoading: false,
-        lastRandomInt: 0
-    }),
+    state,
     mutations: {
         /**Esto podemos interpretarlo como methods */
         /**Estos métodos permiten realizar cambios en el state */

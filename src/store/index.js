@@ -24,18 +24,24 @@ export default createStore({
             state.count += val
             state.lastMutation = 'incrementBy ' + val
             state.lastRandomInt = val
+        },
+        setLoading(state, val) {
+            state.isLoading = val
+            state.lastMutation = 'setLoading ' + val
         }
     },
     actions: {
         //Estas sí pueden ser asíncronas
         //Se pueden usar para comprobar cosas contra un backend...
         //Las acciones son despachadas y las mutaciones son commiteadas
-        async incrementRandomInt( context ){
+        async incrementRandomInt( { commit } ){
+            commit('setLoading', true)
             const randomInt = await getRandomInt()
 
             //Las acciones nunca saltan al state ... lo cambian haciendo commit mutations
             /**El contexto tiene información sobre el contexto del store o del módulo en el que nos encontramos */
-            context.commit('incrementBy', randomInt)
+            commit('incrementBy', randomInt)
+            commit('setLoading', false)
         }
     }
 

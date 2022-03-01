@@ -29,3 +29,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - ESLint -> ESLint with error prevention only -> Lint on save
 - Archivos de configuración dedicados
 - No guardar configuración para futuros proyectos
+
+
+### Vuex
+- yarn add vuex@next --save
+- [Vuex](https://vuex.vuejs.org/)

@@ -1,4 +1,6 @@
 import { createStore } from 'vuex'
+import getRandomInt from "@/helpers/getRandomInt";
+
 
 /**Creo mi store de Vuex con un contador */
 export default createStore({
@@ -6,7 +8,9 @@ export default createStore({
     state: {
         /**Parecido a la data, lo que tenemos dentro vamos a tener cosas reactivas */
         count: 1,
-        lastMutation: 'none'
+        lastMutation: 'none',
+        isLoading: false,
+        lastRandomInt: 0
     },
     mutations: {
         /**Esto podemos interpretarlo como methods */
@@ -18,7 +22,20 @@ export default createStore({
         },
         incrementBy( state, val) {
             state.count += val
-            state.lastMutation = 'incrementBy'
+            state.lastMutation = 'incrementBy ' + val
+            state.lastRandomInt = val
+        }
+    },
+    actions: {
+        //Estas sí pueden ser asíncronas
+        //Se pueden usar para comprobar cosas contra un backend...
+        //Las acciones son despachadas y las mutaciones son commiteadas
+        async incrementRandomInt( context ){
+            const randomInt = await getRandomInt()
+
+            //Las acciones nunca saltan al state ... lo cambian haciendo commit mutations
+            /**El contexto tiene información sobre el contexto del store o del módulo en el que nos encontramos */
+            context.commit('incrementBy', randomInt)
         }
     }
 

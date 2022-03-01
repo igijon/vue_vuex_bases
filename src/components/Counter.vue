@@ -34,6 +34,8 @@ export default {
         this.$store.commit('increment')
       },
       incrementBy() {
+        //Si queremos mantar más de un argumento, podemos mandar un objeto que se puede desestructurar en index.js en mutations
+        //Las mutaciones son síncronas
         this.$store.commit('incrementBy', 5)
       }
     }

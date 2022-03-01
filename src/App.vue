@@ -1,12 +1,18 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
+  <Counter />
+  <!--Si cambio los datos de counter, por ejemplo
+  desde las herramientas Vue de desarrollo, de forma reactiva cambia mi html-->
 </template>
 
 <script>
 
+import { defineAsyncComponent } from 'vue'
+
 export default {
   name: 'App',
   components: {
+    Counter: defineAsyncComponent(() => import('@/components/Counter.vue'))
   }
 }
 </script>

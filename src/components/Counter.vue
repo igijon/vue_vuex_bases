@@ -2,6 +2,11 @@
   <h1>Counter - Vuex</h1>
   <h2>Direct access: {{ $store.state.count }}</h2>
   <h2>Computed: {{ countComputed }}</h2>
+
+  <button @click="increment">+1</button>
+  <button>+5</button>
+  <button>Random</button>
+
   <h1>mapState</h1>
   <h2>mapState: {{ count }}</h2>
   <h2>LastMutation: {{lastMutation}}</h2>
@@ -22,6 +27,12 @@ export default {
              return this.$store.state.count
         },
         ...mapState(['count', 'lastMutation'])
+    },
+    methods: {
+      increment() {
+        //Necesito leer el store y hacer un commit de la mutacón increment
+        this.$store.commit('increment')
+      }
     }
 }
 </script>
